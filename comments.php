@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
 if ( post_password_required() ) {
 	return;
@@ -24,7 +24,7 @@ if ( post_password_required() ) {
 	$has_avatar      = get_option( 'show_avatars' );
 	$comment_class   = $has_avatar ? ' avatar-disabled' : '';
 	$comment_args    = [
-		'callback'    => 'radiustheme\MyTheme\Helper::comments_callback',
+		'callback'    => 'MyTheme\Helper::comments_callback',
 		'reply_text'  => esc_html__( 'Reply', 'mytheme' ),
 		'avatar_size' => 70,
 	];

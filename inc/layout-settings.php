@@ -1,14 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
-
-use Rtcl\Helpers\Functions;
-use RtclStore\Helpers\Functions as StoreFunctions;
+namespace MyTheme;
 
 class Layouts {
 
@@ -33,25 +30,9 @@ class Layouts {
 	}
 
 	public function layout_settings() {
-		$is_listing = $is_listing_archive = $is_store = $is_store_archive = $is_agent_archive = false;
 
-		if ( class_exists( 'Rtcl' ) ) {
-			$is_listing_archive = Functions::is_listings() || Functions::is_listing_taxonomy();
-		}
-		if ( $is_listing_archive ) {
-			$is_listing = true;
-		}
-		if ( class_exists( 'RtclStore' ) && class_exists( 'Rtcl' ) ) {
-			$is_store_archive = StoreFunctions::is_store() || StoreFunctions::is_store_taxonomy();
-		}
-		if ( class_exists( 'RtclAgent' ) ) {
-			$is_agent_archive = rtcl_is_agent();
-		}
-		if ( $is_store_archive ) {
-			$is_store = true;
-		}
 		// Single Pages
-		if ( ( is_single() || is_page() ) && ! $is_listing ) {
+		if ( is_single() || is_page() ) {
 			$post_type        = get_post_type();
 			$post_id          = get_the_id();
 			$this->meta_value = get_post_meta( $post_id, "{$this->base}_layout_settings", true );
@@ -60,14 +41,6 @@ class Layouts {
 			switch ( $post_type ) {
 				case 'post':
 					$this->type = 'single_post';
-					break;
-				case 'rtcl_listing':
-					$this->type                                   = 'listing_single';
-					MyTheme::$options[ $this->type . '_layout' ]  = 'full-width';
-					MyTheme::$options[ $this->type . '_sidebar' ] = '';
-					break;
-				case 'rtcl_agent' :
-					$this->type = 'agent_single';
 					break;
 				case 'product' :
 					$this->type = 'woocommerce_single';
@@ -90,26 +63,17 @@ class Layouts {
 			MyTheme::$footer_style          = $this->meta_layout_global_option( 'footer_style' );
 			MyTheme::$has_tr_header         = $this->meta_layout_global_option( 'tr_header', true );
 			MyTheme::$has_breadcrumb        = $this->meta_layout_global_option( 'breadcrumb', true );
-
-
 		} // Blog and Archive
-		elseif ( is_home() || is_archive() || is_search() || is_404() || $is_listing || $is_store ) {
+		elseif ( is_home() || is_archive() || is_search() || is_404() ) {
 			if ( is_404() ) {
 				$this->type                                   = 'error';
 				MyTheme::$options[ $this->type . '_layout' ]  = 'full-width';
 				MyTheme::$options[ $this->type . '_sidebar' ] = '';
-			} elseif ( $is_listing_archive ) {
-				$this->type = 'listing_archive';
-			} elseif ( $is_store_archive ) {
-				$this->type = 'store_archive';
-			} elseif ( $is_agent_archive ) {
-				$this->type = 'agent_archive';
 			} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
 				$this->type = 'woocommerce_archive';
 			} else {
 				$this->type = 'blog';
 			}
-
 
 			MyTheme::$layout         = $this->layout_option( 'layout' );
 			MyTheme::$sidebar        = $this->layout_option( 'sidebar' );
@@ -183,7 +147,7 @@ class Layouts {
 		$result = '';
 		if ( $meta != 'default' ) {
 			$result = $meta;
-		} elseif($check_opt) {
+		} elseif ( $check_opt ) {
 			$result = $op_layout;
 		}
 
@@ -215,32 +179,6 @@ class Layouts {
 		$op_layout  = MyTheme::$options[ $layout_key ];
 
 		return $op_layout;
-	}
-
-	private function bgimg_option( $key, $is_single = true ) {
-		$layout_key = $this->type . '_' . $key;
-
-		if ( $is_single ) {
-			$meta = ! empty( $this->meta_value[ $key ] ) ? $this->meta_value[ $key ] : '';
-		} else {
-			$meta = '';
-		}
-
-		$op_layout = MyTheme::$options[ $layout_key ];
-		$op_global = MyTheme::$options[ $key ];
-
-		if ( $meta ) {
-			$src = wp_get_attachment_image_src( $meta, 'full', true );
-			$img = $src[0];
-		} elseif ( ! empty( $op_layout['url'] ) ) {
-			$img = $op_layout['url'];
-		} elseif ( ! empty( $op_global['url'] ) ) {
-			$img = $op_global['url'];
-		} else {
-			$img = Helper::get_img( 'banner.jpg' );
-		}
-
-		return $img;
 	}
 
 }

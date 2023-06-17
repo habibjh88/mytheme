@@ -1,15 +1,15 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Settings;
+namespace MyTheme\Customizer\Settings;
 
-use radiustheme\MyTheme\Customizer\MyTheme_Customizer;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Switch_Control;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Separator_Control;
+use MyTheme\Customizer\MyTheme_Customizer;
+use MyTheme\Customizer\Controls\Customizer_Switch_Control;
+use MyTheme\Customizer\Controls\Customizer_Separator_Control;
 use WP_Customize_Media_Control;
 
 /**
@@ -178,21 +178,6 @@ class MyTheme_General_Settings extends MyTheme_Customizer {
 					'frame_title'  => esc_html__( 'Select File', 'mytheme' ),
 					'frame_button' => esc_html__( 'Choose File', 'mytheme' ),
 				],
-			]
-		) );
-
-		// Add our Checkbox switch setting and control for opening URLs in a new tab
-		$wp_customize->add_setting( 'magnific_popup',
-			[
-				'default'           => $this->defaults['magnific_popup'],
-				'transport'         => 'refresh',
-				'sanitize_callback' => 'rttheme_switch_sanitization',
-			]
-		);
-		$wp_customize->add_control( new Customizer_Switch_Control( $wp_customize, 'magnific_popup',
-			[
-				'label'   => esc_html__( 'Magnific Popup', 'mytheme' ),
-				'section' => 'general_section',
 			]
 		) );
 

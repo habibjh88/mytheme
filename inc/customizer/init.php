@@ -1,6 +1,6 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-use radiustheme\MyTheme\Helper;
+use MyTheme\Helper;
 
 Helper::requires( 'customizer/controls/headings.php' );
 Helper::requires( 'customizer/controls/switch-control.php' );

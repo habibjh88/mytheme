@@ -1,18 +1,18 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Settings;
+namespace MyTheme\Customizer\Settings;
 
-use radiustheme\MyTheme\Customizer\MyTheme_Customizer;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Switch_Control;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Image_Radio_Control;
-use radiustheme\MyTheme\Helper;
+use MyTheme\Customizer\MyTheme_Customizer;
+use MyTheme\Customizer\Controls\Customizer_Switch_Control;
+use MyTheme\Customizer\Controls\Customizer_Image_Radio_Control;
+use MyTheme\Helper;
 use WP_Customize_Color_Control;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Alfa_Color;
+use MyTheme\Customizer\Controls\Customizer_Alfa_Color;
 
 /**
  * Adds the individual sections, settings, and controls to the theme customizer
@@ -27,22 +27,7 @@ class MyTheme_Header_Settings extends MyTheme_Customizer {
 	}
 
 	public function register_header_controls( $wp_customize ) {
-		// Header Style
-		$wp_customize->add_setting( 'header_style',
-			[
-				'default'           => $this->defaults['header_style'],
-				'transport'         => 'refresh',
-				'sanitize_callback' => 'rttheme_radio_sanitization',
-			]
-		);
-		$wp_customize->add_control( new Customizer_Image_Radio_Control( $wp_customize, 'header_style',
-			[
-				'label'       => __( 'Header Layout', 'mytheme' ),
-				'description' => esc_html__( 'Select the header style', 'mytheme' ),
-				'section'     => 'header_main_section',
-				'choices'     => Helper::get_mytheme_header_list('header'),
-			]
-		) );
+
 
 		//Menu Alignment
 		$wp_customize->add_setting( 'menu_alignment', [

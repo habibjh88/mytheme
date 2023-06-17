@@ -1,7 +1,7 @@
 <?php
 
-use radiustheme\MyTheme\Helper;
-use radiustheme\MyTheme\MyTheme;
+use MyTheme\Helper;
+use MyTheme\MyTheme;
 
 $custom_logo_id = get_theme_mod( 'custom_logo' );
 $default_logo_name = MyTheme::$has_tr_header ? "logo_light.svg" : "logo.svg";

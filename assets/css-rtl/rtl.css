@@ -180,11 +180,11 @@
 }
 
 .is-shadow-yes .rt-el-listing-wrapper.style8::before {
-    background: linear-gradient(90deg, var(--rt-primary-color) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--mytheme-primary-color) 0%, transparent 100%);
 }
 
 .is-shadow-yes .rt-el-listing-wrapper.style8::after {
-    background: linear-gradient(-90deg, var(--rt-primary-color) 0%, transparent 100%);
+    background: linear-gradient(-90deg, var(--mytheme-primary-color) 0%, transparent 100%);
 }
 
 .fa-angle-double-right:before {

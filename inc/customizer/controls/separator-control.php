@@ -1,6 +1,6 @@
 <?php
 
-namespace radiustheme\MyTheme\Customizer\Controls;
+namespace MyTheme\Customizer\Controls;
 
 use WP_Customize_Control;
 

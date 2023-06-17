@@ -1,13 +1,13 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Typography;
+namespace MyTheme\Customizer\Typography;
 
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Separator_Control;
+use MyTheme\Customizer\Controls\Customizer_Separator_Control;
 
 /**
  * Adds the individual sections, settings, and controls to the theme customizer

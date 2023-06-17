@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer;
+namespace MyTheme\Customizer;
 
 /**
  * Adds the individual sections, settings, and controls to the theme customizer

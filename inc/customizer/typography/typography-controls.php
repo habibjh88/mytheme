@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Typography;
+namespace MyTheme\Customizer\Typography;
 
 use WP_Customize_Control;
 

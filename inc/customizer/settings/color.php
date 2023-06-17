@@ -1,14 +1,14 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Settings;
+namespace MyTheme\Customizer\Settings;
 
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Separator_Control;
-use radiustheme\MyTheme\Customizer\MyTheme_Customizer;
+use MyTheme\Customizer\Controls\Customizer_Separator_Control;
+use MyTheme\Customizer\MyTheme_Customizer;
 use WP_Customize_Color_Control;
 
 /**

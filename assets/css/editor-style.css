@@ -1,4 +1,4 @@
-body{
+body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 30px;
@@ -17,18 +17,22 @@ body{
 a {
     color: #ef4836;
 }
+
 a,
 a > * {
     outline: none;
     cursor: pointer;
     text-decoration: none;
 }
-a:focus{
-  color: #ef4836;
+
+a:focus {
+    color: #ef4836;
 }
+
 a:hover {
     color: #c03a2b;
 }
+
 a:focus,
 a:hover {
     outline: none;
@@ -38,27 +42,33 @@ a:hover {
 
 /* HEADING STYLE =-=-=-=-=-=-= */
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto Slab', serif;
     color: #2f2f2f;
     font-weight: 700;
     margin: 0 0 15px;
 }
+
 h1 {
     font-size: 36px;
 }
+
 h2 {
     font-size: 32px;
 }
+
 h3 {
     font-size: 22px;
 }
+
 h4 {
     font-size: 18px;
 }
+
 h5 {
     font-size: 16px;
 }
+
 h6 {
     font-size: 14px;
 }
@@ -66,20 +76,19 @@ h6 {
 
 /* DEFINITION LISTS =-=-=-=-=-=-= */
 
-dl dd{
+dl dd {
     margin-bottom: 10px;
 }
 
 /* PRE =-=-=-=-=-=-= */
-pre{
+pre {
     border: 1px solid #ECECEC;
 }
 
 /* CODE =-=-=-=-=-=-= */
-code{
+code {
     color: #888888;
 }
-
 
 
 /* WORDPRESS CORE =-=-=-=-=-=-= */
@@ -94,7 +103,7 @@ div.aligncenter {
 }
 
 .alignright {
-    float:right;
+    float: right;
     margin: 5px 0 20px 20px;
 }
 
@@ -131,7 +140,7 @@ a img.aligncenter {
     text-align: center;
 }
 
-.wp-caption figcaption{
+.wp-caption figcaption {
     padding: 5px 0 0;
 }
 
@@ -166,7 +175,7 @@ a img.aligncenter {
 
 
 /* BLOCKQUOTE =-=-=-=-=-=-= */
-blockquote{
+blockquote {
     position: relative;
     margin: 0;
     padding: 15px 10px 15px 60px;
@@ -176,7 +185,7 @@ blockquote{
     border: none;
 }
 
-blockquote::before{
+blockquote::before {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -185,20 +194,24 @@ blockquote::before{
     font-size: 30px;
     color: #bbb;
 }
+
 blockquote.wp-block-quote {
-	border: none !important;
-	padding-left: 60px !important;
+    border: none !important;
+    padding-left: 60px !important;
 }
+
 blockquote.wp-block-pullquote {
-	border-top: 4px solid #ddd;
-	border-bottom: 4px solid #ddd;
-	padding: 70px 0 30px 0;
+    border-top: 4px solid #ddd;
+    border-bottom: 4px solid #ddd;
+    padding: 70px 0 30px 0;
 }
+
 blockquote.wp-block-pullquote::before {
-	left: 50% !important;
-	transform: translateX(-50%);
-	top: 25px;
+    left: 50% !important;
+    transform: translateX(-50%);
+    top: 25px;
 }
+
 .wp-block-pullquote p {
-	margin: 0 !important;
+    margin: 0 !important;
 }

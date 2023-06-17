@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 $header_style = MyTheme::$header_style ? MyTheme::$header_style : 4;
 ?>
     <header id="site-header" class="site-header">

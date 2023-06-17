@@ -1,14 +1,14 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Settings;
+namespace MyTheme\Customizer\Settings;
 
-use radiustheme\MyTheme\Customizer\MyTheme_Customizer;
-use radiustheme\MyTheme\Helper;
+use MyTheme\Customizer\MyTheme_Customizer;
+use MyTheme\Helper;
 
 /**
  * Adds the individual sections, settings, and controls to the theme customizer
@@ -40,20 +40,6 @@ class MyTheme_Error_Layout_Settings extends MyTheme_Customizer {
 				'on'      => esc_html__( 'Enable', 'mytheme' ),
 				'off'     => esc_html__( 'Disable', 'mytheme' ),
 			],
-		] );
-		// Header Layout
-		$wp_customize->add_setting( 'error_header_style',
-			[
-				'default'           => $this->defaults['error_header_style'],
-				'transport'         => 'refresh',
-				'sanitize_callback' => 'rttheme_text_sanitization',
-			]
-		);
-		$wp_customize->add_control( 'error_header_style', [
-			'type'    => 'select',
-			'section' => 'error_layout_section',
-			'label'   => esc_html__( 'Header Layout', 'mytheme' ),
-			'choices' => Helper::get_mytheme_header_list(),
 		] );
 
 		//Menu Alignment

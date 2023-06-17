@@ -1,13 +1,13 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Settings;
+namespace MyTheme\Customizer\Settings;
 
-use radiustheme\MyTheme\Customizer\MyTheme_Customizer;
+use MyTheme\Customizer\MyTheme_Customizer;
 use WP_Customize_Media_Control;
 
 /**

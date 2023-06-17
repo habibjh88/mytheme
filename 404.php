@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
 
 $callback404 = [ Helper::get_img( '404.png' ), 709, 287 ];

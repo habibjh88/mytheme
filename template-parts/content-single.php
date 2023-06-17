@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 $comments_number = get_comments_number();
 $comments_text   = sprintf( '(%s)', number_format_i18n( $comments_number ) );
 $has_entry_meta  = MyTheme::$options['post_author_name'] || MyTheme::$options['post_comment_num'] || MyTheme::$options['post_date'] ? true : false;

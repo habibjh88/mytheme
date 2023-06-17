@@ -1,14 +1,12 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
-use Rtcl\Helpers\Functions;
-use RtclPro\Helpers\Fns;
 
 class Helper {
 
@@ -26,20 +24,6 @@ class Helper {
 	 */
 	public static function has_full_width() {
 		return ( MyTheme::$layout == 'full-width' ) ? true : false;
-	}
-
-	/**
-	 * Get listing single style
-	 * @return mixed|string
-	 */
-	public static function listing_single_style() {
-		$opt_layout  = ! empty( MyTheme::$options['single_listing_style'] ) ? MyTheme::$options['single_listing_style'] : '1';
-		$meta_layout = get_post_meta( get_the_id(), 'listing_layout', true );
-		if ( ! $meta_layout || 'default' == $meta_layout ) {
-			return $opt_layout;
-		} else {
-			return $meta_layout;
-		}
 	}
 
 	/**
@@ -163,9 +147,9 @@ class Helper {
 	 *
 	 * @return string
 	 */
-	public static function get_maybe_rtl_css( $filename ) {
+	public static function get_maybe_rtl_css( $filename, $rtlfilename ) {
 		if ( is_rtl() ) {
-			$path = '/assets/css-rtl/' . $filename . '.css';
+			$path = '/assets/css/' . $rtlfilename . '.css';
 
 			return self::get_file( $path );
 		} else {
@@ -225,130 +209,6 @@ class Helper {
 	}
 
 	/**
-	 * Get all sidebar list
-	 *
-	 * @return array
-	 */
-	public static function custom_sidebar_fields(): array {
-		$base                                      = 'mytheme';
-		$sidebar_fields                            = [];
-		$sidebar_fields['sidebar']                 = esc_html__( 'Sidebar', 'mytheme' );
-		$sidebar_fields['listing-archive-sidebar'] = esc_html__( 'Listing Archive Sidebar', 'mytheme' );
-		$sidebar_fields['store-sidebar']           = esc_html__( 'Agency/Store Sidebar', 'mytheme' );
-		$sidebar_fields['agent-sidebar']           = esc_html__( 'Agent Sidebar', 'mytheme' );
-		if ( class_exists( 'WooCommerce' ) ) {
-			$sidebar_fields['woocommerce-archive-sidebar'] = esc_html__( 'WooCommerce Archive Sidebar', 'mytheme' );
-			$sidebar_fields['woocommerce-single-sidebar']  = esc_html__( 'WooCommerce Single Sidebar', 'mytheme' );
-		}
-		$sidebars = get_option( "{$base}_custom_sidebars", [] );
-		if ( $sidebars ) {
-			foreach ( $sidebars as $sidebar ) {
-				$sidebar_fields[ $sidebar['id'] ] = $sidebar['name'];
-			}
-		}
-
-		return $sidebar_fields;
-	}
-
-	/**
-	 * Get site header list
-	 *
-	 * @param $return_type
-	 *
-	 * @return array|array[]
-	 */
-	public static function get_mytheme_header_list( $return_type = '' ): array {
-		if ( 'header' === $return_type ) {
-			return [
-				'1' => [
-					'image' => trailingslashit( get_template_directory_uri() ) . 'assets/img/header-1.png',
-					'name'  => __( 'Style 1', 'mytheme' ),
-				],
-				'2' => [
-					'image' => trailingslashit( get_template_directory_uri() ) . 'assets/img/header-2.png',
-					'name'  => __( 'Style 2', 'mytheme' ),
-				],
-				'3' => [
-					'image' => trailingslashit( get_template_directory_uri() ) . 'assets/img/header-3.png',
-					'name'  => __( 'Style 3', 'mytheme' ),
-				],
-				'4' => [
-					'image' => trailingslashit( get_template_directory_uri() ) . 'assets/img/header-4.png',
-					'name'  => __( 'Style 4', 'mytheme' ),
-				],
-				'5' => [
-					'image' => trailingslashit( get_template_directory_uri() ) . 'assets/img/header-5.png',
-					'name'  => __( 'Style 5 (NO BG)', 'mytheme' ),
-				],
-			];
-		} else {
-			return [
-				'default' => esc_html__( 'Default', 'mytheme' ),
-				'1'       => esc_html__( 'Layout 1', 'mytheme' ),
-				'2'       => esc_html__( 'Layout 2', 'mytheme' ),
-				'3'       => esc_html__( 'Layout 3', 'mytheme' ),
-				'4'       => esc_html__( 'Layout 4', 'mytheme' ),
-				'5'       => esc_html__( 'Layout 5', 'mytheme' ),
-			];
-		}
-	}
-
-	/**
-	 * Custom listing template
-	 *
-	 * @param $template
-	 * @param $echo
-	 * @param $args
-	 * @param $path
-	 *
-	 * @return string|void
-	 */
-	public static function get_custom_listing_template( $template, $echo = true, $args = [], $path = 'custom/' ) {
-		$template = 'classified-listing/' . $path . $template;
-		if ( $echo ) {
-			self::get_template_part( $template, $args );
-		} else {
-			$template .= '.php';
-
-			return $template;
-		}
-	}
-
-	/**
-	 * Custom store template
-	 *
-	 * @param $template
-	 * @param $echo
-	 * @param $args
-	 *
-	 * @return string|void
-	 */
-	public static function get_custom_store_template( $template, $echo = true, $args = [] ) {
-		$template = 'classified-listing/store/custom/' . $template;
-		if ( $echo ) {
-			self::get_template_part( $template, $args );
-		} else {
-			$template .= '.php';
-
-			return $template;
-		}
-	}
-
-	/**
-	 * Check chat is enable or not
-	 * @return bool
-	 */
-	public static function is_chat_enabled() {
-		if ( MyTheme::$options['header_chat_icon'] && class_exists( 'Rtcl' ) ) {
-			if ( class_exists( 'RtclPro' ) && Fns::is_enable_chat() ) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Get primary color
 	 * @return mixed|null
 	 */
@@ -370,34 +230,6 @@ class Helper {
 	 */
 	public static function get_body_color() {
 		return apply_filters( 'mytheme_body_color', MyTheme::$options['body_color'] );
-	}
-
-	/**
-	 * Set temp query
-	 *
-	 * @param $query
-	 *
-	 * @return mixed
-	 */
-	public static function wp_set_temp_query( $query ) {
-		global $wp_query;
-		$temp     = $wp_query;
-		$wp_query = $query;
-
-		return $temp;
-	}
-
-	/**
-	 * Reset temp query
-	 *
-	 * @param $temp
-	 *
-	 * @return void
-	 */
-	public static function wp_reset_temp_query( $temp ) {
-		global $wp_query;
-		$wp_query = $temp;
-		wp_reset_postdata();
 	}
 
 	/**
@@ -532,27 +364,27 @@ class Helper {
 		}
 		ob_start();
 		?>
-        <ul class="agent-social">
-            <li class="social-item">
-                <a href="#" class="social-hover-icon social-link">
-                    <i class="fas fa-share-alt"></i>
-                </a>
-                <ul class="team-social-dropdown">
+		<ul class="agent-social">
+			<li class="social-item">
+				<a href="#" class="social-hover-icon social-link">
+					<i class="fas fa-share-alt"></i>
+				</a>
+				<ul class="team-social-dropdown">
 					<?php foreach ( $social_links as $icon ) : ?>
 
-                        <li class="social-item">
-                            <a
-                                    href="<?php echo esc_html( $icon['social_link'] ) ?>"
-                                    class="social-link" target="_blank"
-                                    title="<?php echo esc_html( $icon['social_title'] ) ?>">
+						<li class="social-item">
+							<a
+								href="<?php echo esc_html( $icon['social_link'] ) ?>"
+								class="social-link" target="_blank"
+								title="<?php echo esc_html( $icon['social_title'] ) ?>">
 								<?php \Elementor\Icons_Manager::render_icon( $icon['social_icon'], [ 'aria-hidden' => 'true' ] ); ?>
-                            </a>
-                        </li>
+							</a>
+						</li>
 
 					<?php endforeach; ?>
-                </ul>
-            </li>
-        </ul>
+				</ul>
+			</li>
+		</ul>
 		<?php
 		echo ob_get_clean();
 	}
@@ -656,201 +488,6 @@ class Helper {
 	}
 
 	/**
-	 * Check meta and customizer value
-	 *
-	 * @param $post_id
-	 * @param $key
-	 *
-	 * @return mixed|string
-	 */
-	public static function rt_get_meta_option( $post_id, $key ) {
-		$op_value   = MyTheme::$options[ $key ];
-		$meta_value = get_post_meta( $post_id, $key, true );
-
-		if ( $meta_value !== 'default' && ! empty( $meta_value ) ) {
-			$op_value = $meta_value;
-		}
-
-		return $op_value;
-
-	}
-
-	/**
-	 * Number Shorten
-	 *
-	 * @param $number
-	 * @param $precision
-	 * @param $divisors
-	 *
-	 * @return mixed|string
-	 */
-	public static function rt_number_shorten( $number, $precision = 3, $divisors = null ) {
-		if ( $number < 1000 ) {
-			return $number;
-		}
-
-		$thousand    = _x( 'K', 'Thousand Shorthand', 'mytheme' );
-		$million     = _x( 'M', 'Million Shorthand', 'mytheme' );
-		$billion     = _x( 'B', 'Billion Shorthand', 'mytheme' );
-		$trillion    = _x( 'T', 'Trillion Shorthand', 'mytheme' );
-		$quadrillion = _x( 'Qa', 'Quadrillion Shorthand', 'mytheme' );
-		$quintillion = _x( 'Qi', 'Quintillion Shorthand', 'mytheme' );
-
-		$shorthand_label = apply_filters( 'mytheme_shorthand_price_label', [
-			'thousand'    => $thousand,
-			'million'     => $million,
-			'billion'     => $billion,
-			'trillion'    => $trillion,
-			'quadrillion' => $quadrillion,
-			'quintillion' => $quintillion
-		] );
-
-		// Setup default $divisors if not provided
-		if ( ! isset( $divisors ) ) {
-			$divisors = [
-				pow( 1000, 0 ) => '', // 1000^0 == 1
-				pow( 1000, 1 ) => isset( $shorthand_label['thousand'] ) ? $shorthand_label['thousand'] : $thousand,
-				pow( 1000, 2 ) => isset( $shorthand_label['million'] ) ? $shorthand_label['million'] : $million,
-				pow( 1000, 3 ) => isset( $shorthand_label['billion'] ) ? $shorthand_label['billion'] : $billion,
-				pow( 1000, 4 ) => isset( $shorthand_label['trillion'] ) ? $shorthand_label['trillion'] : $trillion,
-				pow( 1000, 5 ) => isset( $shorthand_label['quadrillion'] ) ? $shorthand_label['quadrillion'] : $quadrillion,
-				pow( 1000, 6 ) => isset( $shorthand_label['quintillion'] ) ? $shorthand_label['quintillion'] : $quintillion,
-			];
-		}
-
-
-		// Loop through each $divisor and find the
-		// lowest amount that matches
-		foreach ( $divisors as $divisor => $shorthand ) {
-			if ( abs( $number ) < ( $divisor * 1000 ) ) {
-				// We found a match!
-				break;
-			}
-		}
-
-		// We found our match, or there were no matches.
-		// Either way, use the last defined value for $divisor.
-
-		$shorthand_price = apply_filters( 'mytheme_shorthand_price', number_format( $number / $divisor, $precision ) );
-
-		return self::rt_remove_unnecessary_zero( $shorthand_price ) . "<span class='price-shorthand'>{$shorthand}</span>";
-	}
-
-	/**
-	 * Number to K, Lac, Cr convert
-	 *
-	 * @param $number
-	 *
-	 * @return mixed|string
-	 */
-	public static function number_to_lac( $number, $precision = 1 ) {
-
-		$hundred   = '';
-		$thousand  = _x( 'K', 'Thousand Shorthand', 'mytheme' );
-		$thousands = _x( 'K', 'Thousands Shorthand', 'mytheme' );
-		$lac       = _x( ' Lac', 'Lac Shorthand', 'mytheme' );
-		$lacs      = _x( ' Lacs', 'Lacs Shorthand', 'mytheme' );
-		$cr        = _x( ' Cr', 'Cr Shorthand', 'mytheme' );
-		$crs       = _x( ' Crs', 'Crs Shorthand', 'mytheme' );
-
-		$shorthand_label = apply_filters( 'mytheme_shorthand_price_label_2', [
-			'hundred'   => $hundred,
-			'thousand'  => $thousand,
-			'thousands' => $thousands,
-			'lac'       => $lac,
-			'lacs'      => $lacs,
-			'crore'     => $cr,
-			'crores'    => $crs,
-		] );
-
-		if ( $number == 0 ) {
-			return '';
-		} else {
-
-			$n_count = strlen( self::rt_remove_unnecessary_zero( $number, '1' ) ); // 7
-			switch ( $n_count ) {
-				case 3:
-					$val       = $number / 100;
-					$val       = number_format( $val, $precision );
-					$shorthand = ( isset( $shorthand_label['hundred'] ) ? $shorthand_label['hundred'] : $hundred );
-					$finalval  = self::rt_remove_unnecessary_zero( $val ) . "<span class='price-shorthand'>{$shorthand}</span>";
-					break;
-				case 4:
-					$val       = $number / 1000;
-					$val       = number_format( $val, $precision );
-					$shorthand = ( isset( $shorthand_label['thousand'] ) ? $shorthand_label['thousand'] : $thousand );
-					$finalval  = self::rt_remove_unnecessary_zero( $val ) . "<span class='price-shorthand'>{$shorthand}</span>";
-					break;
-				case 5:
-					$val       = $number / 1000;
-					$val       = number_format( $val, $precision );
-					$shorthand = ( isset( $shorthand_label['thousands'] ) ? $shorthand_label['thousands'] : $thousands );
-					$finalval  = self::rt_remove_unnecessary_zero( $val ) . "<span class='price-shorthand'>{$shorthand}</span>";
-					break;
-				case 6:
-					$val       = $number / 100000;
-					$val       = number_format( $val, $precision );
-					$shorthand = ( isset( $shorthand_label['lac'] ) ? $shorthand_label['lac'] : $lac );
-					$finalval  = self::rt_remove_unnecessary_zero( $val ) . "<span class='price-shorthand'>{$shorthand}</span>";
-					break;
-				case 7:
-					$val       = $number / 100000;
-					$val       = number_format( $val, $precision );
-					$shorthand = ( isset( $shorthand_label['lacs'] ) ? $shorthand_label['lacs'] : $lacs );
-					$finalval  = self::rt_remove_unnecessary_zero( $val ) . "<span class='price-shorthand'>{$shorthand}</span>";
-					break;
-				case 8:
-					$val       = $number / 10000000;
-					$val       = number_format( $val, $precision );
-					$shorthand = ( isset( $shorthand_label['crore'] ) ? $shorthand_label['crore'] : $cr );
-					$finalval  = self::rt_remove_unnecessary_zero( $val ) . "<span class='price-shorthand'>{$shorthand}</span>";
-					break;
-				case 8 < $n_count:
-					$val       = $number / 10000000;
-					$val       = number_format( $val, $precision );
-					$shorthand = ( isset( $shorthand_label['crores'] ) ? $shorthand_label['crores'] : $crs );
-					$finalval  = self::rt_remove_unnecessary_zero( $val ) . "<span class='price-shorthand'>{$shorthand}</span>";
-					break;
-				default:
-					$finalval = $number;
-			}
-
-			return $finalval;
-
-		}
-	}
-
-	/**
-	 * Remove unnecessary zero after point
-	 *
-	 * @param $value
-	 *
-	 * @return mixed|string
-	 */
-	public static function rt_remove_unnecessary_zero( $value, $return_type = '' ) {
-
-		if ( strpos( $value, '.' ) ) {
-			[ $a, $b ] = explode( ".", $value );
-
-			if ( $return_type == '1' ) {
-				return $a;
-			}
-
-			if ( $return_type == '2' ) {
-				return $b;
-			}
-
-			if ( ! array_filter( str_split( $b ) ) ) {
-				$value = $a;
-			} else {
-				$value = $a . '.' . rtrim( $b, '0' );
-			}
-		}
-
-		return $value;
-	}
-
-	/**
 	 * Custom pagination for page template
 	 *
 	 * @param $query
@@ -885,59 +522,6 @@ class Helper {
 	}
 
 	/**
-	 * Get Listing author image
-	 *
-	 * @param $listing
-	 * @param $size
-	 * @param $default
-	 * @param $args
-	 *
-	 * @return void
-	 */
-	static public function get_listing_author_iamge( $listing, $size = 40, $default = 'Author', $args = [] ) {
-		$manager_id = get_post_meta( $listing->get_id(), '_rtcl_manager_id', true );
-		$owner_id   = $manager_id ? $manager_id : $listing->get_owner_id();
-		$pp_id      = absint( get_user_meta( $owner_id, '_rtcl_pp_id', true ) );
-		if ( $pp_id ) {
-			echo wp_get_attachment_image( $pp_id, [ $size, $size ] );
-		} else {
-			echo get_avatar( $listing->get_author_id(), $size );
-		}
-	}
-
-	/**
-	 * Get Mytheme thumb carousel markup
-	 *
-	 * @param        $listing_id
-	 * @param string $size
-	 */
-
-	public static function mytheme_thumb_carousel( $listing_id, $size = 'rtcl-thumbnail' ) { ?>
-        <div class="listing-archive-carousel">
-            <div class="swiper-wrapper">
-				<?php $images = Functions::get_listing_images( $listing_id ); ?>
-				<?php foreach ( $images as $index => $image ): ?>
-					<?php $thumb_img = wp_get_attachment_image_src( $image->ID, $size ); ?>
-                    <div class="swiper-slide">
-                        <div class="thumbnail-bg" style="background-image:url(<?php echo esc_url( $thumb_img[0] ) ?>)">
-                            <a class="listing-link" href="<?php echo esc_attr( get_the_permalink( $listing_id ) ) ?>"></a>
-                        </div>
-                    </div>
-				<?php endforeach; ?>
-            </div>
-            <div class="listing-archive-pagination">
-                <div class="swiper-button-prev listing-navigation">
-                    <i class="fas fa-angle-left"></i>
-                </div>
-                <div class="swiper-button-next listing-navigation">
-                    <i class="fas fa-angle-right"></i>
-                </div>
-            </div>
-        </div>
-		<?php
-	}
-
-	/**
 	 * Get Date Archive Link
 	 * @return string
 	 */
@@ -947,33 +531,6 @@ class Helper {
 		$archive_day   = get_the_date( 'j' );
 
 		return get_day_link( $archive_year, $archive_month, $archive_day );
-	}
-
-	/**
-	 * @param int $user_id
-	 * @param $options
-	 *
-	 * @return array
-	 */
-	public static function get_user_listing_ids( int $user_id, $options = [] ): array {
-		if ( ! absint( $user_id ) ) {
-			return [];
-		}
-		$args = [
-			'post_type'      => rtcl()->post_type,
-			'post_status'    => 'publish',
-			'posts_per_page' => ! empty( $options['listings_per_page'] ) ? absint( $options['listings_per_page'] ) : - 1,
-			'paged'          => ! empty( $options['paged'] ) ? absint( $options['paged'] ) : 1,
-			'author'         => $user_id,
-			'fields'         => 'ids',
-		];
-
-		$results = new \WP_Query( apply_filters( 'mytheme_get_user_listing_ids', $args ) );
-		if ( ! empty( $results->posts ) ) {
-			return $results->posts;
-		}
-
-		return [];
 	}
 
 	/**
@@ -990,7 +547,15 @@ class Helper {
 		);
 		$post_types = wp_list_pluck( $post_types, 'label', 'name' );
 
-		$exclude = [ 'attachment', 'revision', 'nav_menu_item', 'elementor_library', 'tpg_builder', 'e-landing-page', 'page' ];
+		$exclude = [
+			'attachment',
+			'revision',
+			'nav_menu_item',
+			'elementor_library',
+			'tpg_builder',
+			'e-landing-page',
+			'page'
+		];
 
 		foreach ( $exclude as $ex ) {
 			unset( $post_types[ $ex ] );

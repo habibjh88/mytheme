@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 ?>
 <section class="no-results not-found">
 	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>

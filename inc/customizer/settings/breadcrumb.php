@@ -1,18 +1,18 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Settings;
+namespace MyTheme\Customizer\Settings;
 
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Separator_Control;
-use radiustheme\MyTheme\Customizer\MyTheme_Customizer;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Switch_Control;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Custom_Heading;
+use MyTheme\Customizer\Controls\Customizer_Separator_Control;
+use MyTheme\Customizer\MyTheme_Customizer;
+use MyTheme\Customizer\Controls\Customizer_Switch_Control;
+use MyTheme\Customizer\Controls\Customizer_Custom_Heading;
 use WP_Customize_Media_Control;
-use radiustheme\MyTheme\Helper;
+use MyTheme\Helper;
 
 /**
  * Adds the individual sections, settings, and controls to the theme customizer

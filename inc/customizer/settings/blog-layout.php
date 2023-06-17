@@ -1,15 +1,15 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme\Customizer\Settings;
+namespace MyTheme\Customizer\Settings;
 
-use radiustheme\MyTheme\Customizer\MyTheme_Customizer;
-use radiustheme\MyTheme\Customizer\Controls\Customizer_Image_Radio_Control;
-use radiustheme\MyTheme\Helper;
+use MyTheme\Customizer\MyTheme_Customizer;
+use MyTheme\Customizer\Controls\Customizer_Image_Radio_Control;
+use MyTheme\Helper;
 
 /**
  * Adds the individual sections, settings, and controls to the theme customizer
@@ -53,20 +53,7 @@ class MyTheme_Blog_Layout_Settings extends MyTheme_Customizer {
 				],
 			]
 		) );
-		// Sidebar
-		$wp_customize->add_setting( 'blog_sidebar',
-			[
-				'default'           => $this->defaults['blog_sidebar'],
-				'transport'         => 'refresh',
-				'sanitize_callback' => 'rttheme_text_sanitization',
-			]
-		);
-		$wp_customize->add_control( 'blog_sidebar', [
-			'type'    => 'select',
-			'section' => 'blog_layout_section',
-			'label'   => esc_html__( 'Custom Sidebar', 'mytheme' ),
-			'choices' => Helper::custom_sidebar_fields(),
-		] );
+
 		// Top bar
 		$wp_customize->add_setting( 'blog_top_bar',
 			[

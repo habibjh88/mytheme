@@ -2,12 +2,12 @@
 /**
  * Template Name: Blog Grid
  *
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
 $post_class = Helper::has_sidebar() ? 'row-cols-sm-2 row-cols-1' : 'row-cols-sm-3 row-cols-1';
 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;

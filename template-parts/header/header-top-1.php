@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
 $has_top_info = MyTheme::$options['contact_address'] || MyTheme::$options['contact_phone'] || MyTheme::$options['contact_email'] || MyTheme::$options['contact_website'] ? true
 	: false;

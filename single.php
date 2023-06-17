@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
 $has_comment_or_from = '';
 if ( ! MyTheme::$options['post_navigation'] ) {
@@ -13,7 +13,7 @@ if ( ! MyTheme::$options['post_navigation'] ) {
 }
 get_header();
 ?>
-    <section id="primary" class="content-area single-blog rtcl-widget-border-enable rtcl-widget-is-sticky">
+    <section id="primary" class="content-area single-blog">
         <div class="container">
             <div class="row">
                 <div class="<?php Helper::the_layout_class(); ?>">

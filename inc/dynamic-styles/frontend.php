@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.4.1
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -88,14 +88,14 @@ $breadcrumb_active_color = $breadcrumb_active_color ? $breadcrumb_active_color :
 ---------------------------------------*/
 ?>
 :root {
---rt-primary-color: <?php echo esc_html( $primary_color ? $primary_color : '#00c194' ); ?>;
---rt-primary-dark: <?php echo esc_html( $primary_dark ? $primary_dark : '#00a376' ); ?>;
---rt-primary-light: <?php echo esc_html( $primary_light ? $primary_light : '#50ffe4' ); ?>;
---rt-primary-light2: <?php echo esc_html( $primary_light2 ? $primary_light2 : '#dceeea' ); ?>;
---rt-primary-light3: <?php echo esc_html( $primary_light3 ? $primary_light3 : '#EAF7F4' ); ?>;
---rt-secondary-color: <?php echo esc_html( $secondary_color ? $secondary_color : '#07c196' ); ?>;
---rt-primary-rgb: <?php echo esc_html( $primary_rgb ? $primary_rgb : '0, 193, 148' ); ?>;
---rt-secondary-rgb: <?php echo esc_html( $secondary_rgb ? $secondary_rgb : '7, 193, 150' ); ?>;
+--mytheme-primary-color: <?php echo esc_html( $primary_color ? $primary_color : '#00c194' ); ?>;
+--mytheme-primary-dark: <?php echo esc_html( $primary_dark ? $primary_dark : '#00a376' ); ?>;
+--mytheme-primary-light: <?php echo esc_html( $primary_light ? $primary_light : '#50ffe4' ); ?>;
+--mytheme-primary-light2: <?php echo esc_html( $primary_light2 ? $primary_light2 : '#dceeea' ); ?>;
+--mytheme-primary-light3: <?php echo esc_html( $primary_light3 ? $primary_light3 : '#EAF7F4' ); ?>;
+--mytheme-secondary-color: <?php echo esc_html( $secondary_color ? $secondary_color : '#07c196' ); ?>;
+--mytheme-primary-rgb: <?php echo esc_html( $primary_rgb ? $primary_rgb : '0, 193, 148' ); ?>;
+--mytheme-secondary-rgb: <?php echo esc_html( $secondary_rgb ? $secondary_rgb : '7, 193, 150' ); ?>;
 }
 
 
@@ -112,7 +112,7 @@ body {
 color: <?php echo esc_html( $body_color ); ?>;
 }
 
-a:active, .rtcl a:hover, a:hover, a:focus {
+a:active, a:hover, a:focus {
 color: <?php echo esc_html( $secondary_color ); ?>;
 }
 
@@ -256,7 +256,7 @@ background: linear-gradient(to bottom, <?php echo esc_html( $header_transparent_
 	<?php endif; ?>
     }
 <?php endif; ?>
-.breadcrumbs-banner .rtcl-breadcrumb {
+.breadcrumbs-banner {
 color: <?php echo esc_html( $breadcrumb_color ); ?>;
 }
 .breadcrumbs-banner h1 {

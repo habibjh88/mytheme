@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 ?>
 <div id="sticky_sidebar" class="<?php Helper::the_sidebar_class(); ?>">
 	<?php

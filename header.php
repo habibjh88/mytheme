@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -21,3 +21,5 @@ namespace radiustheme\MyTheme;
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mytheme' ); ?></a>
 		<?php get_template_part( 'template-parts/content', 'menu' ); ?>
 		<div id="content" class="site-content">
+			<?php
+			get_template_part('template-parts/content', 'banner');

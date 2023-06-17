@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.3.4
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 ?>
 </div><!-- #content -->
 <?php

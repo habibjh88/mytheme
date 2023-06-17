@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 $site_name          = get_bloginfo( 'name' );
 $custom_logo_id     = get_theme_mod( 'custom_logo' );
 $default_logo       = $custom_logo_id ? wp_get_attachment_image_src( $custom_logo_id, 'full' ) : [

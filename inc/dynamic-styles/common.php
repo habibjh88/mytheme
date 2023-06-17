@@ -1,11 +1,11 @@
 <?php
 /**
- * @author  RadiusTheme
+ * @author  MyTheme
  * @since   1.0
  * @version 1.0
  */
 
-namespace radiustheme\MyTheme;
+namespace MyTheme;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -44,9 +44,9 @@ $typo_h6 = json_decode( MyTheme::$options['typo_h6'], true );
 
 ?>
 :root{
---rt-body-font: '<?php echo esc_html( $typo_body['font'] ); ?>', sans-serif;;
---rt-heading-font: '<?php echo esc_html( $typo_heading['font'] ); ?>', sans-serif;
---rt-menu-font: '<?php echo esc_html( $typo_menu['font'] ); ?>', sans-serif;
+--mytheme-body-font: '<?php echo esc_html( $typo_body['font'] ); ?>', sans-serif;;
+--mytheme-heading-font: '<?php echo esc_html( $typo_heading['font'] ); ?>', sans-serif;
+--mytheme-menu-font: '<?php echo esc_html( $typo_menu['font'] ); ?>', sans-serif;
 }
 
 body {
@@ -74,7 +74,6 @@ font-size: <?php echo esc_html( MyTheme::$options['typo_submenu_size'] ) ?>;
 line-height: <?php echo esc_html( MyTheme::$options['typo_submenu_height'] ); ?>;
 }
 
-.rtcl h1, .rtcl h2, .rtcl h3, .rtcl h4, .rtcl h5, .rtcl h6,
 h1,h2,h3,h4,h5,h6 {
 font-family: '<?php echo esc_html( $typo_heading['font'] ); ?>', sans-serif;
 font-weight : <?php echo esc_html( $typo_heading['regularweight'] ); ?>;

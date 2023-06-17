@@ -1,6 +1,6 @@
 <?php
 
-namespace radiustheme\MyTheme\Customizer\Controls;
+namespace MyTheme\Customizer\Controls;
 
 use WP_Customize_Control;
 
@@ -43,8 +43,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function enqueue() {
 			wp_enqueue_script( 'rttheme-select2-js', trailingslashit( get_template_directory_uri() ) . 'assets/js/select2.min.js', [ 'jquery' ], '4.0.6', true );
-			wp_enqueue_script( 'rttheme-custom-controls-js', trailingslashit( get_template_directory_uri() ) . 'assets/js/customizer.js', [ 'rttheme-select2-js' ], '1.2', true );
-			wp_enqueue_style( 'rttheme-custom-controls-css', trailingslashit( get_template_directory_uri() ) . 'assets/css/customizer.css', [], '1.1', 'all' );
+			wp_enqueue_script( 'rttheme-custom-controls-js', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/assets/customizer.js', [ 'rttheme-select2-js' ], '1.2', true );
+			wp_enqueue_style( 'rttheme-custom-controls-css', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/assets/customizer.css', [], '1.1', 'all' );
 			wp_enqueue_style( 'rttheme-select2-css', trailingslashit( get_template_directory_uri() ) . 'assets/css/select2.min.css', [], '4.0.6', 'all' );
 		}
 
