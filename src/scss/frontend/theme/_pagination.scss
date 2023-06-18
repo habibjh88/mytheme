@@ -1,0 +1,57 @@
+
+/*------------------- 4.5 Pagination -------------------*/
+.pagination-number {
+	text-align: center;
+	margin-top: 20px;
+	display: inline-block;
+	width: 100%;
+}
+
+.pagination-number ul {
+	display: flex;
+	justify-content: center;
+}
+
+.pagination-number ul li {
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+.pagination-number ul li i {
+	font-size: 14px;
+}
+
+.pagination-number ul li:last-child {
+	margin-right: 0;
+}
+
+.pagination-number ul li span,
+.pagination-number ul li a {
+	font-size: 18px;
+	color: #717171;
+	font-weight: 700;
+	padding: 6px 16px;
+	border: 1px solid #cbdbd7;
+	border-radius: 4px;
+	background-color: #ffffff;
+	display: block;
+}
+
+.pagination-number ul li span.current,
+.pagination-number ul li a:hover {
+	background-color: var(--mytheme-primary-dark);
+	border-color: var(--mytheme-primary-dark);
+	color: #ffffff;
+}
+
+.pagination-number ul li.pagi-next a,
+.pagination-number ul li.pagi-previous a {
+	font-size: 12px;
+}
+
+.pagination-number ul li.active a {
+	background-color: var(--mytheme-primary-dark);
+	border-color: var(--mytheme-primary-dark);
+	color: #ffffff;
+}

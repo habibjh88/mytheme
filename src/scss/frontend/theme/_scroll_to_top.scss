@@ -1,0 +1,28 @@
+
+/*------------------- Scroll To Top -------------------*/
+a.scrollToTop {
+  background-color: var(--mytheme-primary-color);
+  bottom: 5px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  transition: all 1s ease-out;
+  z-index: 99;
+  border-radius: 4px;
+}
+
+a.scrollToTop i {
+  display: block;
+  line-height: 40px;
+}
+
+a.scrollToTop:hover, a.scrollToTop:focus {
+  background-color: var(--mytheme-primary-dark);
+  color: #fff !important;
+}

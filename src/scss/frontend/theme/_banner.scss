@@ -1,0 +1,18 @@
+
+
+/*------------------- 4.5 Inner Banner -------------------*/
+.breadcrumbs-banner {
+  padding: 30px 0;
+  background-color: var(--mytheme-primary-light3);
+  overflow: hidden;
+  border-bottom: 1px solid var(--mytheme-primary-light2, #deede9);
+}
+
+
+/* Breadcrumb Style-2  */
+.breadcrumbs-banner.style-2 {
+  background-color: var(--mytheme-primary-color);
+  padding: 50px 0;
+  background-position: bottom;
+  background-repeat: repeat-x;
+}

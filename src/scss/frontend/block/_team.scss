@@ -1,0 +1,126 @@
+/*------------------- 5.1 Team -------------------*/
+.team-grid .team-box {
+  margin-bottom: 30px;
+  box-shadow: 0 6px 40px 0 rgba(79, 79, 79, 0.12);
+  border-radius: 0;
+}
+
+.team-grid .team-box .item-img {
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.team-grid .team-box .item-img:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.team-grid .team-box .item-img img {
+  border-radius: 0;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.team-grid .team-box .item-img .social-icon {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+
+.team-grid .team-box .item-img .social-icon li {
+  margin-bottom: 10px;
+  transform: translateX(30px);
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.team-grid .team-box .item-img .social-icon a {
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: var(--mytheme-primary-color);
+}
+
+.team-grid .team-box .item-img .social-icon a:hover {
+  background-color: var(--mytheme-primary-dark);
+  color: #ffffff;
+}
+
+.team-grid .team-box .item-content {
+  text-align: center;
+  padding: 25px 20px;
+}
+
+.team-grid .team-box .item-title {
+  margin-bottom: 4px;
+}
+
+.team-grid .team-box .item-title a {
+  color: #000000;
+}
+
+.team-grid .team-box .item-title a:hover {
+  color: var(--mytheme-primary-color);
+}
+
+.team-grid .team-box .item-subtitle {
+  color: var(--mytheme-primary-color);
+}
+
+.team-grid .team-box:hover .item-title {
+  -webkit-animation: toptobottom 0.5s forwards;
+  animation: toptobottom 0.5s forwards;
+}
+
+.team-grid .team-box:hover .item-img:after {
+  visibility: visible;
+  opacity: 0.2;
+}
+
+.team-grid .team-box:hover .item-img img {
+  transform: scale(1.1);
+}
+
+.team-grid .team-box:hover .item-img .social-icon {
+  visibility: visible;
+  opacity: 1;
+}
+
+.team-grid .team-box:hover .item-img .social-icon li {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.team-grid .team-box:hover .item-img .social-icon li:nth-child(2n) {
+  transition-delay: 0.2s;
+}
+
+.team-grid .team-box:hover .item-img .social-icon li:nth-child(3n) {
+  transition-delay: 0.3s;
+}
+
+.team-grid .team-box:hover .item-img .social-icon li:nth-child(4n) {
+  transition-delay: 0.4s;
+}

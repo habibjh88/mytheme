@@ -215,3 +215,7 @@ blockquote.wp-block-pullquote::before {
 .wp-block-pullquote p {
     margin: 0 !important;
 }
+
+body{
+    background: red;
+}

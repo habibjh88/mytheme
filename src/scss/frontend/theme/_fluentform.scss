@@ -1,0 +1,133 @@
+
+.fluentform .fluent_form_1 .ff-el-group {
+  margin-bottom: 15px;
+}
+
+.fluentform .fluent_form_1 .ff-el-group .ff-el-form-control {
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #f6f6f6;
+  height: auto;
+  color: #111111;
+  border-radius: 4px;
+}
+
+.fluentform .fluent_form_1 .ff-el-group .ff-el-form-control:focus {
+  outline: 0;
+  box-shadow: none;
+  background-color: #f6f6f6;
+}
+
+.fluentform .fluent_form_1 .ff-el-group .ff-btn-submit {
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ffffff;
+  height: 60px;
+  padding: 12px 35px 10px;
+  background-color: var(--mytheme-primary-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.fluentform .fluent_form_1 .ff-el-group .ff-btn-submit:hover {
+  background-color: var(--mytheme-primary-dark);
+}
+
+.contact-page-form .fluentform .fluent_form_1 .ff-el-group .ff-el-form-control {
+  border: 1px solid #e4e9f2;
+  background-color: #f9fbfe;
+  border-radius: 3px;
+}
+
+.contact-page-form .fluentform .fluent_form_1 .ff-el-group .ff-el-form-control:hover,
+.contact-page-form .fluentform .fluent_form_1 .ff-el-group .ff-el-form-control:focus {
+  border-color: var(--mytheme-primary-color);
+  box-shadow: 0 0 15px rgb(213 223 239 / 55%);
+}
+
+.contact-page-form .fluentform .ff-el-input--label.ff-el-is-required.asterisk-right label:after {
+  color: #a7a7a7 !important;
+  margin-left: 0;
+}
+
+.contact-page-form .fluentform .fluent_form_1 .ff-el-group .ff-btn-submit {
+  width: 100%;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  background-color: var(--mytheme-primary-color);
+  opacity: 1;
+}
+
+.contact-page-form .fluentform .fluent_form_1 .ff-el-group .ff-btn-submit:hover {
+  background-color: var(--mytheme-primary-dark);
+}
+
+.fluentform .ff-el-input--label label {
+  font-weight: 500 !important;
+  color: #a7a7a7 !important;
+  font-size: 14px !important;
+}
+
+//==========
+
+.fluentform .fluent_form_2 {
+  background-color: rgba(var(--mytheme-primary-rgb), 0.7);
+  border-radius: 4px;
+  padding: 35px 40px 30px;
+}
+
+.fluentform .fluent_form_2 .ff-el-group {
+  margin-bottom: 10px;
+}
+
+.fluentform .fluent_form_2 .ff-el-group h2 {
+  font-size: 28px;
+  line-height: 36px;
+  color: #ffffff;
+}
+
+.fluentform .fluent_form_2 .ff-el-group > p {
+  color: #ffffff;
+}
+
+.fluentform .fluent_form_2 .ff-el-group input {
+  height: 45px;
+}
+
+.fluentform .fluent_form_2 .ff-el-group .ff-el-form-control {
+  color: #111111;
+  background-color: #ffffff;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+}
+
+.fluentform .fluent_form_2 .ff-el-group .ff-btn-submit {
+  width: auto;
+  height: auto;
+  padding: 18px 35px 18px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  color: #111111;
+  background-color: #ffffff;
+  border-radius: 4px;
+  opacity: 1;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.fluentform .fluent_form_2 .ff-el-group .ff-btn-submit:hover {
+  background-color: #ffffff;
+  color: var(--mytheme-primary-color);
+  outline: none;
+  box-shadow: none;
+}

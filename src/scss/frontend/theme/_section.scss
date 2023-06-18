@@ -1,0 +1,15 @@
+
+/*------------------- 4.6 Section -------------------*/
+section.section, .section {
+	padding: 118px 0 90px;
+}
+
+@media only screen and (max-width: 991px) {
+	section.section, .section {
+		padding: 78px 0 50px;
+	}
+}
+
+.ptb-100 {
+	padding: 100px 0;
+}

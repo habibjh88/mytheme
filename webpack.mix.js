@@ -43,6 +43,7 @@ if ((!process.env.npm_config_block && !process.env.npm_config_package) && (proce
 
 
     mix.sass( 'src/scss/frontend/style.scss', 'assets/css/style.min.css' )
+    mix.sass( 'src/scss/admin/gutenberg.scss', 'assets/css/gutenberg.min.css' )
         .options( {
             terser: {
                 extractComments: false

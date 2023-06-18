@@ -1,0 +1,35 @@
+.bg-primary {
+	background-color: var(--mytheme-primary-color) !important;
+}
+
+.bg-secondary {
+	background-color: var(--mytheme-primary-color) !important;
+}
+
+
+.primary-color {
+	color: var(--mytheme-primary-color);
+}
+
+.secondary-color {
+	color: var(--mytheme-primary-color);
+}
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+	margin-left: 0;
+}
+
+.tooltip {
+	z-index: 99999;
+}
+
+.tooltip.show {
+	opacity: 1;
+}
+
+.site-main {
+	background-color: #ffffff;
+}

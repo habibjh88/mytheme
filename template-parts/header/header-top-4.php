@@ -32,7 +32,6 @@ if ( 'fullwidth' == MyTheme::$header_width ) {
 						<?php if ( MyTheme::$options['contact_address'] ): ?>
                             <li class="item-location"><i class="fas fa-map-marker-alt"></i><span><?php echo esc_html( MyTheme::$options['contact_address'] ); ?></span></li>
 						<?php endif; ?>
-
                     </ul>
                 </div>
 			<?php endif; ?>
